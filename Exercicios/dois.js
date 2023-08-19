@@ -1,3 +1,3 @@
-export function subtrair(num1, num2) {
-    return num1 - num2;
+export function valor_receber(valor_hr, qtde_horas) {
+    return valor_hr * qtde_horas;
 }
