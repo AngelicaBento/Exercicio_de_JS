@@ -5,6 +5,10 @@ import { somar} from './Exercicios/um.js'
 import { temperaturaF } from './Exercicios/quatro.js'
 import { qtde_milhas } from './Exercicios/cinco.js'
 import { evento_duracao } from './Exercicios/seis.js'
+import { conversao_Metro } from './Exercicios/Sete.js'
+import { conversao_Cm } from './Exercicios/Sete.js'
+import { tabuada } from './Exercicios/oito.js'
+import { media_notas } from './Exercicios/Nove.js'
 
 const app = express()
 app.use(express.json())
@@ -56,6 +60,27 @@ app.post('/api/exseis', (req, res) => {
     res.status(200).json({
         message: `A duração do evento em horas é de:  ${result}`
     })
+})
+
+app.post('/api/exsete', (req, res) => {
+    const resulMetro = conversao_Metro(req.body.valorKM)
+    const resulCm = conversao_Cm(req.body.valorKM)
+
+    res.status(200).json({
+        message: `A conversão de quilometros em metros é de ${resulMetro}m e em CM é ${resulCm}cm`
+    })
+})
+
+app.post('/api/exoito', (req, res) => {
+    const result = tabuada(req.body.num);
+
+    res.status(200).json(result)
+})
+
+app.post('/api/exnove', (req, res) => {
+    const result = media_notas(req.body.nota1, req.body.nota2, req.body.nota3)
+
+    res.status(200).json(result)
 })
 
 app.listen(port, () => {
