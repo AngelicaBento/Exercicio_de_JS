@@ -1,14 +1,14 @@
-import express from 'express'
-import { valor_receber } from './Exercicios/dois.js'
-import { peso } from './Exercicios/tres.js'
-import { somar} from './Exercicios/um.js'
-import { temperaturaF } from './Exercicios/quatro.js'
-import { qtde_milhas } from './Exercicios/cinco.js'
-import { evento_duracao } from './Exercicios/seis.js'
-import { conversao_Metro } from './Exercicios/Sete.js'
-import { conversao_Cm } from './Exercicios/Sete.js'
-import { tabuada } from './Exercicios/oito.js'
-import { media_notas } from './Exercicios/Nove.js'
+const express = require('express')
+const { peso } = require('./Exercicios/dois.js')
+const { valor_receber } = require('./Exercicios/tres.js')
+const { somar } = require('./Exercicios/um.js')
+const { temperaturaF } = require('./Exercicios/quatro.js')
+const { qtde_milhas } = require('./Exercicios/cinco.js')
+const { evento_duracao } = require('./Exercicios/seis.js')
+const { conversao_Metro } = require('./Exercicios/Sete.js')
+const { conversao_Cm } = require('./Exercicios/Sete.js')
+const { tabuada } = require('./Exercicios/oito.js')
+const { media_notas } = require('./Exercicios/Nove.js')
 
 const app = express()
 app.use(express.json())

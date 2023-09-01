@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "description": "Jovem Programador",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "yarn node --experimental -vm-modules $(yarn bin jest)",
-    "test":  "yarn node --experimental -vm-modules $(yarn bin jest) --coverage"
+    "test": "jest test/index.test.js",
+    "test:cov": "jest test/index.test.js --coverage"
   },
   "repository": {
     "type": "git",
