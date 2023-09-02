@@ -1,6 +1,6 @@
 const express = require('express')
-const { peso } = require('./Exercicios/dois.js')
-const { valor_receber } = require('./Exercicios/tres.js')
+const { valor_receber } = require('./Exercicios/dois.js')
+const { peso } = require('./Exercicios/tres.js')
 const { somar } = require('./Exercicios/um.js')
 const { temperaturaF } = require('./Exercicios/quatro.js')
 const { qtde_milhas } = require('./Exercicios/cinco.js')
@@ -9,6 +9,15 @@ const { conversao_Metro } = require('./Exercicios/Sete.js')
 const { conversao_Cm } = require('./Exercicios/Sete.js')
 const { tabuada } = require('./Exercicios/oito.js')
 const { media_notas } = require('./Exercicios/Nove.js')
+const { calculo_imc } = require('./Exercicios/dez.js')
+const { calculo_operacao} = require('./Exercicios/onze.js')
+const { positivo_negativo } = require('./Exercicios/doze.js')
+const { par_impar } = require('./Exercicios/treze.js')
+const { num_maior } = require('./Exercicios/quatorze.js')
+const { valor_triangulo } = require('./Exercicios/quinze.js')
+const { impostoDeRenda } = require('./Exercicios/dezesseis.js')
+const { notaMediaFinal } = require('./Exercicios/dezessete.js')
+const { custo_veiculo } = require('./Exercicios/dezoito.js')
 
 const app = express()
 app.use(express.json())
@@ -81,6 +90,60 @@ app.post('/api/exnove', (req, res) => {
     const result = media_notas(req.body.nota1, req.body.nota2, req.body.nota3)
 
     res.status(200).json(result)
+})
+
+app.post('/api/exdez', (req, res) => {
+    const result = calculo_imc(req.body.sexo, req.body.altura)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exonze', (req, res) => {
+    const result = calculo_operacao(req.body.num1, req.body.operacao, req.body.num2)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exdoze', (req, res) => {
+    const result = positivo_negativo(req.body.num)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/extreze', (req, res) => {
+    const result = par_impar(req.body.num)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exquatorze', (req, res) => {
+    const result = num_maior(req.body.num1, req.body.num2)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exquinze', (req, res) => {
+    const result = valor_triangulo(req.body.valor1, req.body.valor2, req.body.valor3)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exdezesseis', (req, res) => {
+    const result = impostoDeRenda(req.body.cpf, req.body.numDependentes, req.body.renda_mensal)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exdezessete', (req, res) => {
+    const result = notaMediaFinal(req.body.nota1, req.body.nota2, req.body.nota3)
+
+    res.status(200).json({message: result})
+})
+
+app.post('/api/exdezoito', (req, res) => {
+    const result = custo_veiculo(req.body.custo_fabrica, req.body.custo_consumidor)
+
+    res.status(200).json({message: result})
 })
 
 app.listen(port, () => {
