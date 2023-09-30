@@ -22,6 +22,14 @@ const { jurosCapital } = require("./Exercicios/dezenove.js");
 const { valorTotalIPI } = require("./Exercicios/vinte.js");
 //const { investigacaoCriminal } = require("./Exercicios/vinteUm.js");
 const { velocidadeMulta } = require("./Exercicios/vintedois.js");
+const { escreverBatata } = require("./Exercicios/vintetres.js");
+const { tabuadaRepet} = require("./Exercicios/vintequatro.js");
+const { mediaAltura } = require("./Exercicios/vintecinco.js");
+const { mediaPesos } = require("./Exercicios/vinteseis.js");
+const { pesoElevador } = require("./Exercicios/vintesete.js");
+const { numerosNegativos } = require("./Exercicios/vinteoito.js");
+//const { numerosDiversos } = require("./Exercicios/vintenove.js");
+const { numsAleatoriosEspecificos } = require("./Exercicios/trinta.js");
 
 const app = express();
 app.use(express.json());
@@ -176,12 +184,12 @@ app.post("/api/exdezessete", (req, res) => {
   res.status(200).json({ message: `Média: ${result}` });
 });
 
-app.post("/api/exercicio18", (req, res) => {
-  const resultado = custoCarro(req.body.custoCarro);
+app.post("/api/exdezoito", (req, res) => {
+  const resultado = custoCarro(req.body.custoFabrica);
   res.status(200).json({ message: `O custo do carro é: ${resultado}` });
 });
 
-app.post("/api/exercicio19", (req, res) => {
+app.post("/api/exdezenove", (req, res) => {
   const resultado = jurosCapital(
     req.body.capital,
     req.body.taxa,
@@ -190,15 +198,15 @@ app.post("/api/exercicio19", (req, res) => {
   res.status(200).json({ message: resultado });
 });
 
-app.post("/api/exercicio20", (req, res) => {
+app.post("/api/exvinte", (req, res) => {
   const resultado = valorTotalIPI(
-    req.body.porcentagem,
-    req.body.cp1,
-    req.body.vp1,
-    req.body.qntp1,
-    req.body.cp2,
-    req.body.vp2,
-    req.body.qntp2
+    req.body.percentagem,
+    req.body.cod_peca1,
+    req.body.valor_peca1,
+    req.body.qntde_peca1,
+    req.body.cod_peca2,
+    req.body.valor_peca2,
+    req.body.qntde_peca2
   );
   res.status(200).json({ message: `O valor total do IPI é: ${resultado}` });
 });
@@ -208,12 +216,48 @@ app.post("/api/exercicio20", (req, res) => {
   res.status(200).json({message: resultado});
 })*/
 
-app.post("/api/exercicio22", (req, res) => {
-  const resultado = velocidadeMulta(
-    req.body.velPermitida,
-    req.body.velPraticada
-  );
-  res.status(200).json({ message: resultado });
+app.post('/api/exvintedois', (req, res) => {
+  const resultado = velocidadeMulta(req.body.velPermitida, req.body.velPraticada);
+  res.status(200).json({message: resultado});
+});
+
+app.post('/api/exvintetres', (req, res) => {
+  const resultado = escreverBatata(req.body.num);
+  res.status(200).json({message: resultado});
+});
+
+app.post('/api/exvintequatro', (req, res) => {
+  const resultado = tabuadaRepet(req.body.num);
+  res.status(200).json({message: resultado});
+});
+
+app.post('/api/exvintecinco', (req, res) => {
+  const resultado = mediaAltura(req.body.qntdePessoas, req.body.alturas);
+  res.status(200).json({message: `A média das alturas é: ${resultado}m`});
+});
+
+app.post('/api/exvinteseis', (req, res) => {
+  const resultado = mediaPesos(req.body.pesos);
+  res.status(200).json({message: `A média dos pesos é: ${resultado}kg`});
+});
+
+app.post('/api/exvintesete', (req, res) => {
+  const resultado = pesoElevador(req.body.pesos);
+  res.status(200).json({message: resultado});
+});
+
+app.post('/api/exvinteoito', (req, res) => {
+  const numeros = req.body.numeros;
+  const resultado = numerosNegativos(numeros);
+  res.status(200).json({numbers: numeros, message: resultado});
+});
+
+/*app.post('/api/exvintenove', (_, res) => {
+  res.status(200).json({message: `Os números gerados são: ${numerosDiversos()}`});
+});*/
+
+app.post('/api/extrinta', (_, res) => {
+  res.status(200).json({message: `Os números gerados são: ${numsAleatoriosEspecificos()}`});
 });
 
 app.listen(port, () => {

@@ -1,7 +1,7 @@
-function valorTotalIPI(porcentagem, cp1, vp1, qntp1, cp2, vp2, qntp2) {
-    let vTotal = (vp1 * qntp1 + vp2 * qntp2) * (porcentagem / 100 + 1);
-  
-    return vTotal;
-  }
-  
-  module.exports = { valorTotalIPI };
+function valorTotalIPI(percentagem, cod_peca1, valor_peca1, qntde_peca1, cod_peca2, valor_peca2, qntde_peca2){
+  let valorTotal = (valor_peca1 * qntde_peca1 + valor_peca2 * qntde_peca2) * (percentagem/100 + 1);
+
+  return valorTotal;
+}
+
+module.exports = { valorTotalIPI } 
